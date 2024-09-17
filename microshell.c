@@ -1,5 +1,6 @@
 #include <string.h>
 #include <unistd.h>
+#include <stdio.h>
 #include <sys/wait.h>
 
 void err(char *str)
@@ -43,6 +44,7 @@ void exec(char **argv, char **envp, int i)
     if (has_pipe && (dup2(fd[0], 0) == -1 || close(fd[0]) == -1 || close(fd[1]) == -1))
         return err("error: fatal\n");
 }
+
 
 int main(int argc, char **argv, char **envp)
 {
