@@ -2,23 +2,21 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-int err(char *str)
+void err(char *str)
 {
     while (*str)
         write(2, str++, 1);
-    return 1;
 }
 
-int cd(char **argv, int i)
+void cd(char **argv, int i)
 {
     if (i != 2)
         return err("error: cd: bad arguments\n");
     if (chdir(argv[1]) == -1)
         return err("error: cd: cannot change directory to "), err(argv[1]), err("\n");
-    return 0;
 }
 
-int exec(char **argv, char **envp, int i)
+void exec(char **argv, char **envp, int i)
 {
     int fd[2];
     int has_pipe = argv[i] && !strcmp(argv[i], "|");
@@ -44,13 +42,11 @@ int exec(char **argv, char **envp, int i)
     waitpid(pid, NULL, 0);
     if (has_pipe && (dup2(fd[0], 0) == -1 || close(fd[0]) == -1 || close(fd[1]) == -1))
         return err("error: fatal\n");
-    return 0;
 }
 
 int main(int argc, char **argv, char **envp)
 {
     int    i = 0;
-    int    status = 0;
 
     if (argc > 1)
     {
@@ -61,8 +57,8 @@ int main(int argc, char **argv, char **envp)
             while (argv[i] && strcmp(argv[i], "|") && strcmp(argv[i], ";"))
                 i++;
             if (i)
-                status = exec(argv, envp, i);
+                exec(argv, envp, i);
         }
     }
-    return status;
+    return 0;
 }
