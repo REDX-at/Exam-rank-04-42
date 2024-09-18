@@ -1,5 +1,5 @@
 # Exam-rank-04-42
-# Microshell - Exam 04 (1337 / 42 Network)
+## Microshell - Exam 04 (1337 / 42 Network)
 The Microshell project is part of the Exam 04 series at 1337 (42 Network). This project challenges students to implement a simplified version of a Unix shell, focusing on process management, pipes, and basic shell functionality. The goal is to demonstrate proficiency in C programming and gain a deep understanding of how shells handle commands, file descriptors, and process execution.
 
 ## Introduction
