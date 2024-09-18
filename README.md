@@ -32,5 +32,4 @@ Error Handling: Robust error detection and handling for invalid commands, permis
 Contact
 For questions, feedback, or support, feel free to reach out to me at taoussi.aimen@gmail.com or visit my GitHub at GitHub.
 
-![My Project Logo](https://github.com/REDX-at/Exam-rank-04-42/blob/main/images/microshell.png)
 
